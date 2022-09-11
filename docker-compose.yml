@@ -1,0 +1,21 @@
+version: "3"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - app_port=${APP_PORT}
+    ports:
+      - "8000:${APP_PORT}"
+    volumes:
+      - .:/app
+    env_file: .env
+    tty: true
+    depends_on:
+      - redis
+  redis:
+    image: redis/redis-stack:latest
+    ports:
+      - "8001:6379"
+      - "8002:8001"
