@@ -1,3 +1,4 @@
 # Deliver
 
-Event-driven FastAPI exercise
+Event-driven FastAPI + React exercise
+

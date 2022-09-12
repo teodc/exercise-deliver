@@ -1,16 +1,16 @@
 version: "3"
 services:
-  app:
+  backend:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: backend/Dockerfile
       args:
         - app_port=${APP_PORT}
     ports:
       - "8000:${APP_PORT}"
     volumes:
-      - .:/app
-    env_file: .env
+      - /backend:/app
+    env_file: backend/.env
     tty: true
     depends_on:
       - redis

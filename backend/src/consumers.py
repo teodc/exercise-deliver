@@ -10,7 +10,6 @@ def _delivery_created(state: State, event: Event) -> State:
     state.status = Status.READY.value
     state.budget = int(data["budget"])
     state.notes = data["notes"]
-    state.save()
 
     return state
 
@@ -20,7 +19,6 @@ def _delivery_started(state: State) -> State:
         raise HTTPException(status_code=400, detail="Delivery has already started")
 
     state.status = Status.IN_PROGRESS.value
-    state.save()
 
     return state
 
@@ -40,7 +38,6 @@ def _products_picked_up(state: State, event: Event) -> State:
     state.purchase_price = purchase_price
     state.quantity = quantity
     state.status = Status.COLLECTED.value
-    state.save()
 
     return state
 
@@ -61,7 +58,6 @@ def _products_delivered(state: State, event: Event) -> State:
     state.sell_price = sell_price
     state.quantity = new_quantity
     state.status = Status.COMPLETED.value
-    state.save()
 
     return state
 
@@ -70,7 +66,6 @@ def _budget_increased(state: State, event: Event) -> State:
     data = json.loads(event.data)
 
     state.budget = state.budget + int(data["amount"])
-    state.save()
 
     return state
 
