@@ -2,6 +2,6 @@
 
 Event-driven FastAPI + React exercise
 
-## Frontend
+## Backend
 
-React
+FastAPI
