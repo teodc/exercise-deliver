@@ -13,12 +13,3 @@ lint:
 
 test:
 	python3 -m pytest -vv tests/test_*.py
-
-build:
-	docker compose up --build -d
-
-destroy:
-	docker compose stop
-	docker compose down
-
-rebuild: destroy build

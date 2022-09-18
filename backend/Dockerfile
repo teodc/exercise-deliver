@@ -6,8 +6,8 @@ FROM python:3.10-bullseye
 
 WORKDIR /app
 
-COPY requirements.txt ./
-COPY Makefile ./
+COPY Makefile .
+COPY requirements.txt .
 
 RUN make install
 

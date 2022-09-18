@@ -2,7 +2,7 @@ version: "3"
 services:
   backend:
     build:
-      context: .
+      context: backend
       dockerfile: backend/Dockerfile
       args:
         - app_port=${APP_PORT}
@@ -19,3 +19,17 @@ services:
     ports:
       - "8001:6379"
       - "8002:8001"
+  frontend:
+    build:
+      context: frontend
+      dockerfile: frontend/Dockerfile
+      args:
+        - app_port=${REACT_APP_PORT}
+    ports:
+      - "8003:${REACT_APP_PORT}"
+    volumes:
+      - /frontend:/app
+    env_file: frontend/.env
+    tty: true
+    depends_on:
+      - backend
