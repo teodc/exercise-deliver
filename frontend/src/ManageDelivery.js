@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 const ManageDelivery = (props) => {
     const [state, setState] = useState({});
+    const [refresh, setRefresh] = useState(false);
 
     useEffect(() => {
         (async () => {
@@ -16,7 +17,7 @@ const ManageDelivery = (props) => {
             const data = await response.json();
             setState(data);
         })()
-    }, []);
+    }, [refresh]);
 
     const submit = async (e, endpoint) => {
         e.preventDefault();
@@ -34,8 +35,7 @@ const ManageDelivery = (props) => {
             return;
         }
 
-        // const newState = await response.json();
-        // setState(newState);
+        setRefresh(!refresh);
     }
 
     function Progress(props) {
