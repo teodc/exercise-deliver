@@ -1,3 +1,4 @@
 # Deliver
 
-Event-driven FastAPI + React exercise
+Event-driven exercice with FastAPI and ReactJS
+

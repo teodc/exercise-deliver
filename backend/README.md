@@ -1,7 +1,8 @@
 # Deliver
 
-Event-driven FastAPI + React exercise
+Event-driven exercise with FastAPI and ReactJS
 
 ## Backend
 
-FastAPI
+FastAPI backend
+

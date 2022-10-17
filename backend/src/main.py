@@ -6,12 +6,13 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from redis_om import Migrator
 from redis_om.model import NotFoundError
+
 import constants
-from delivery import Delivery
-from event import Event, Type
-from state import State
+from models import Delivery, Event, State
+from enums import Type
 from consumers import consume
 from producers import produce
+
 
 app = FastAPI()
 

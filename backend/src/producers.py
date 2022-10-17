@@ -1,4 +1,4 @@
-from event import Event
+from models import Event
 
 
 def produce(event_type: str, delivery_id: str, data: str) -> Event:
